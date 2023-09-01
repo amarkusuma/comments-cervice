@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 const fsExtra = require('fs-extra');
 const path = './comentar.json';
+// const path = 'https://drive.google.com/uc?export=download&id=1gCh10gdLz-loMk1IQGi_qhjPgVdpdJYo'
 var bodyParser = require('body-parser')
 
 const cors = require('cors');
@@ -20,22 +21,22 @@ app.use(bodyParser.json());
 // fsExtra.ensureFileSync(path, [])
 // fsExtra.createWriteStream(path, { overwrite: false });
 
-fsExtra.exists(path, function(exists) {
-    if(exists) {
-      console.log('File json exists')
-    }
-    else {
-        fsExtra.createWriteStream(path, { overwrite: false });
-        fsExtra.writeJson(path,  [{
-            "id": 1,
-            "name": "Fulanah",
-            "comments": "barakallahu laka wa baarakaa alaika wa jamaa bainakumaa fii khoir",
-            "date": "09:00 2/10/2023"
-            }
-        ]);
-        console.log("Create File Json", path);
-    }
-});
+// fsExtra.exists(path, function(exists) {
+//     if(exists) {
+//       console.log('File json exists')
+//     }
+//     else {
+//         fsExtra.createWriteStream(path, { overwrite: false });
+//         fsExtra.writeJson(path,  [{
+//             "id": 1,
+//             "name": "Fulanah",
+//             "comments": "barakallahu laka wa baarakaa alaika wa jamaa bainakumaa fii khoir",
+//             "date": "09:00 2/10/2023"
+//             }
+//         ]);
+//         console.log("Create File Json", path);
+//     }
+// });
 
 app.get('/comments', async function (req, res) {
     try {
